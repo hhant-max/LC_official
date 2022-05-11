@@ -1,20 +1,14 @@
 class Solution:
     def backspaceCompare(self, s: str, t: str) -> bool:
-        
-        def removeback(string):
-            res = []
-            for i in string:
-                if i != '#':
-                    res.append(i)
+        def remove(s):
+            stk = []
+            for ch in s:
+                if ch=="#":
+                    if stk: stk.pop()
                 else:
-                    # 去掉最后一个
-                    if res: res.pop()
-            return res
-        
-        if removeback(s) == removeback(t): 
-            return True
-        else:
-            return False
+                    stk.append(ch)
+            return stk
+        return remove(s)==remove(t)
                 
                 
                 
